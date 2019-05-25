@@ -20,3 +20,6 @@ urlpatterns=[
     url(r'^api/technologies/$', views.technologiesList.as_view()),
     url(r'^api/colors/$', views.colorsList.as_view()),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
