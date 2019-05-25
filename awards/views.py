@@ -37,3 +37,19 @@ def index(request):
         return redirect('create-profile')
 
     return render(request,'index.html',{"winners":winners,"profile":profile,"caraousel":caraousel,"date":date,"nominees":nominees,"directories":directories,"resources":resources,"resources2":resources2})
+
+@login_required(login_url='/accounts/login/')
+def create_profile(request):
+    current_user = request.user
+    if request.method=='POST':
+        form = ProfileForm(request.POST,request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.username = current_user
+
+            profile.save()
+        return redirect('Index')
+    else:
+        form=ProfileForm()
+
+    return render(request,'create_profile.html',{"form":form})
