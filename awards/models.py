@@ -97,7 +97,7 @@ class Project(models.Model):
 class Profile(models.Model):
     avatar = models.ImageField(upload_to='avatars/')
     description = HTMLField()
-    country = models.ForeignKey(countries,on_delete=models.CASCADE)
+    # country = models.ForeignKey(countries,on_delete=models.CASCADE)
     username = models.ForeignKey(User,on_delete=models.CASCADE)
     name =models.CharField(max_length=100)
     email = models.EmailField()
