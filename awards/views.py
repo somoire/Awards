@@ -78,7 +78,7 @@ def directory(request):
     profile =Profile.objects.get(username=current_user)
 
     winners=Project.objects.all()
-    caraousel = Project.objects.get(id=8)
+    caraousel = Project.objects.all()
 
     return render(request,'directory.html',{"winners":winners,"profile":profile,"caraousel":caraousel,"date":date})
 

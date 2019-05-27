@@ -78,7 +78,7 @@ class Project(models.Model):
     creativity = models.IntegerField(blank=True,default=0)
     content = models.IntegerField(blank=True,default=0)
     overall_score = models.IntegerField(blank=True,default=0)
-    country = models.ForeignKey(countries,on_delete=models.CASCADE)
+    country = models.CharField(max_length = 20)
     technologies = models.ManyToManyField(technologies)
     categories = models.ManyToManyField(categories)
     colors = models.ManyToManyField(colors)
@@ -97,7 +97,7 @@ class Project(models.Model):
 class Profile(models.Model):
     avatar = models.ImageField(upload_to='avatars/')
     description = HTMLField()
-    country = models.ForeignKey(countries,on_delete=models.CASCADE)
+    country = models.CharField(max_length = 20)
     username = models.ForeignKey(User,on_delete=models.CASCADE)
     name =models.CharField(max_length=100)
     email = models.EmailField()

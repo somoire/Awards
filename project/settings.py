@@ -29,7 +29,7 @@ SECRET_KEY = 'p@_j@&88x&al+jfss5))3ht+v&yk6m&f-vhruhok2js8!rebl-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['awwardds.herokuapp.com']
 
 
 # Application definition
@@ -83,14 +83,8 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'awards',
-        'USER': 'rodney',
-    'PASSWORD':'12345',
-    }
-}
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
 
 
 # Password validation
