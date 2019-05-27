@@ -229,6 +229,10 @@
 /**
 *Exampe from https://kottenator.github.io/jquery-circle-progress/
 */
+var photos = [];
+{% for car in caraousel %}
+    photos.push('{{ car.design }}');
+{% endfor %}
 var progressBarOptions = {
 	startAngle: -1.55,
 	size: 100,
